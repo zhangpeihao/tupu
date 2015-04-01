@@ -108,7 +108,7 @@ func (req *Request) CheckSingleImage(imgBuf *bytes.Buffer, imgName string) (resp
 	var tupuResponseCapsule ResponseCapsule
 	err = json.Unmarshal(tupu_resp_bytes, &tupuResponseCapsule)
 	if err != nil {
-		fmt.Println("ioutil.ReadAll err:", err)
+		fmt.Println("json.Unmarshal err:", err)
 		return nil, err
 	}
 
@@ -116,7 +116,7 @@ func (req *Request) CheckSingleImage(imgBuf *bytes.Buffer, imgName string) (resp
 	resp = &tupuResponse
 	err = json.Unmarshal([]byte(tupuResponseCapsule.Json), resp)
 	if err != nil {
-		fmt.Println("ioutil.ReadAll err:", err)
+		fmt.Println("json.Unmarshal err:", err)
 		return nil, err
 	}
 	return
